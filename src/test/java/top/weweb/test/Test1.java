@@ -10,6 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import top.weweb.hawk.mailx.UnknownMailAddressException;
 import top.weweb.hawk.mailx.MimeMail;
+import top.weweb.hawk.mailx.MimeMail.Builder;
 
 public class Test1 {
 	/**
@@ -59,6 +60,11 @@ public class Test1 {
 		to.add("hongshuboy@qq.com");
 		mimeMail.sendMail(to, "你有新消息", "请到网站内查看");
 		applicationContext.close();
+	}
+	
+	@Test
+	public void testBuilder() {
+		
 	}
 
 }
