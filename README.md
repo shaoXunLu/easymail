@@ -1,9 +1,15 @@
-# springmail-simple-mail
-> A simple spring mail sender,use spring mail to send email,simple mail API
->
+# 使用帮助
+
 > 基于Spring Mail的简单的邮件发送API，有详细的配置介绍
 
 `maven` `spring` `spring mail` `simple mail`
+
+#### 特点优势
+
+> - 极简邮件发送：两行代码发送邮件
+> - 高效：保证使用简单的同时，重视效率，在你不需要关注源码的情况下，自动选择最好的方式
+> - Spring：基于Spring，完全支持Spring，又可以脱离Spring使用
+> - 高送达率：默认双发送器，失败重发，尽可能保证送达到目的地
 
 # 版本更新
 
@@ -164,6 +170,10 @@ public void testSend() throws IOException, MailAddressException {
 > **易错注意 :** 
 >
 > - 如果使用上层容器，两个容器内不要同时有`<context:property-placeholder location="xx"/>`，将这个结点放到顶层`spring.xml`中
+
+### 如果你觉得对你有帮助，请点个star鼓励作者~
+
+> 有问题或者建议欢迎在此页留言或者向我发送邮件，一起改进
 
 ### 问题反馈
 
