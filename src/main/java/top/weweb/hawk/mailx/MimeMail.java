@@ -31,6 +31,8 @@ public class MimeMail {
 	private JavaMailSenderImpl qqMailSender;
 
 	private JavaMailSenderImpl mailSender = null;
+	
+	private static final String DONOTREPLY = "<p>本邮件自动发送，请勿回复</p>";
 
 	/**
 	 * common mail 本方法抽取出发送邮件公共部分，只需传入必要的三个信息即可发送邮件</br>
@@ -69,7 +71,7 @@ public class MimeMail {
 			MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
 			// 注意下面的是Text+something,Text是传入的等待发送的内容，后面部分是固定格式，比如说“本邮件自动发送，请勿回复”
 			// 可以根据需要自行更改固定内容
-			String formatText = Text + "<p>本邮件自动发送，请勿回复</p>";
+			String formatText = Text + DONOTREPLY;
 			// 这个是附带发送的图片。不需要可以去掉，但是需要把固定内容的cid:img一起去掉，这是标志位
 			String[] toArray = new String[to.size()];
 			to.toArray(toArray);
