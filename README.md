@@ -21,10 +21,29 @@
 ## 快速开始（5分钟上手使用）
 
 > - 在这里，你可以快速完成邮件的发送，只需要一点点必须的设置
->
 > - 熟悉项目结构：这是一个maven工程，如果你不会使用maven，可以使用`1.Jar`包的方式
 
-### 1.设置发件箱的域名和密码
+## 一个示例：
+
+只需要这四行代码，即可`完整`地发送一封邮件。
+
+```java
+@Test
+	public void testSendSimple() throws MailAddressException {
+		MimeMail mimeMail = MimeMail.Builder.initMailSender("smtp.163.com", "smtp",465, "hongshuboy@163.com","你的客户端授权码", false);
+		List<String> to = new ArrayList<String>();// 收件人集合
+		to.add("hongshuboy@qq.com");
+		mimeMail.sendMail(to, "你有新的消息", "请到网站内查看"+new Date());
+	}
+```
+
+### 1. 必需的设置，开启邮箱的POP3/SMTP/IMAP
+
+通过客户端（代码）发送邮件，必须到邮箱中打开这项设置，并且获取到客户端授权码（理解为密码），因为账号的密码是不能用的，需要用它代替密码。
+
+详细设置过程不难，请自行搜索，搜索关键词如：`163邮箱如何开启POP3/SMTP/IMAP服务`。
+
+### 2.设置发件箱的域名和密码（可选配置）
 
 > 如果你不想使用配置文件，只想使用编码方式快速开始，可以略过这一部分，确保`开启你的邮箱的POP3/SMTP/IMAP`之后，直接看下面的`1.1不使用properties（最简单的方式）`或`1.2使用properties`
 
@@ -34,7 +53,7 @@
 
 ​	2. 如果你只配置了一个发送器，无需修改代码，系统会只用这一个发送器进行发送（但是需要删除一个spring配置，注意下文`A`部分）。
 
-**开启你的邮箱的POP3/SMTP/IMAP**
+**开启邮箱的POP3/SMTP/IMAP**
 
 ​	要使用java mail，请先在邮箱设置中开启POP3/SMTP/IMAP，***配置的密码不是你的登录密码***，以163邮箱为例，同样在设置中选择客户端授权密码，获取一份授权密码，放在配置文件 *（src\main\resources\mail.properties）* 的`mail.password`位置。
 
@@ -47,6 +66,7 @@
 ## 下载依赖Jar包
 
 * 将本项目使用Maven打包或者到releases[下载`Jar`包](https://github.com/hongshuboy/springmail-simple-mail/releases)
+* **注意：** 如果你不使用Spring容器，使用`1.1`和`1.2`的方式，那么你需要 **额外** 将/[dependencies](https://github.com/hongshuboy/springmail-simple-mail/tree/master/dependencies)下的所有Jar包添加到项目中
 
 ## 简单的配置之后终于可以开始测试了
 
@@ -64,7 +84,7 @@
 >
 > - **注意：**`1.1`和`1.2`都只能添加一种发送器，但是遇到错误会重试一次。相比`2.使用Spring容器（推荐）`的方式（两个发送器），稳定性稍差。
 >
-> - > `1.0.1`版本更新后，此方式默认使用单例模式加载，在使用方式不变的情况下，提高了响应速度
+> - `1.0.1`版本更新后，此方式默认使用单例模式加载，在使用方式不变的情况下，提高了响应速度
 
 ```java
 /**
@@ -79,7 +99,6 @@
 		MimeMail mimeMail = MimeMail.Builder.initMailSender("smtp.163.com", "smtp",465, "hongshuboy@163.com","你的客户端授权码", false);
 		List<String> to = new ArrayList<String>();// 收件人集合
 		to.add("hongshuboy@qq.com");
-        //密集发送时，163会报554 DT:SPM异常
 		mimeMail.sendMail(to, "你有新的消息", "请到网站内查看"+new Date());
 	}
 ```
@@ -93,7 +112,7 @@
 		System.out.println(mail == mail2);//这里会输出true,因为直接拿了上一次的对象
 ```
 
-​	**如果163邮箱报554 DT:SPM异常，请参考下面的文档**
+​	**如果163邮箱报554 DT:SPM异常，意思是识别到你发的是垃圾邮件，其他异常请参考下面的文档**
 
 ​	[163邮箱退信的常见问题](http://help.163.com/09/1224/17/5RAJ4LMH00753VB8.html)
 
@@ -177,8 +196,7 @@ public void testSend() throws IOException, MailAddressException {
 
 ### 问题反馈
 
-```xml
-hongshuboy@gmail.com
-hongshuboy@qq.com
-```
+[hongshu@weweb.top](mailto:hongshu@weweb.top)
+
+
 
