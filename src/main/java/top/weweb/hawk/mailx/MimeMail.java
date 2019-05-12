@@ -76,7 +76,11 @@ public class MimeMail {
 			String[] toArray = new String[to.size()];
 			to.toArray(toArray);
 			messageHelper.setFrom(mailSender.getUsername());
-			messageHelper.setBcc(toArray);
+			if (to.size()==1) {
+				messageHelper.setTo(to.get(0));
+			}else {
+				messageHelper.setBcc(toArray);
+			}
 			messageHelper.setSubject(subject);
 			messageHelper.setText(formatText, true);
 			// 下面两行可以附带发送的图片
