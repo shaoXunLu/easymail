@@ -50,20 +50,22 @@
 ### 1.2 下载依赖Jar包
 
 - 将本项目使用Maven打包或者到releases[下载`Jar`包](https://github.com/hongshuboy/springmail-simple-mail/releases)
-- **注意：** 如果你不使用Spring容器，使用`1.1`和`1.2`的方式，那么你需要 **额外** 将/[dependencies](https://github.com/hongshuboy/springmail-simple-mail/tree/master/dependencies)下的所有Jar包添加到项目中
+- **注意：** 如果你不使用Spring容器，那么你需要 **额外** 将/[dependencies](https://github.com/hongshuboy/springmail-simple-mail/tree/master/dependencies)下的所有Jar包添加到项目中
 
-### 1.3 开始发送
+### 1.3 Add to Build Path
 
-> - 这是**最简单**的方式，直接可以创建mimeMail
+复制刚刚下载好的几个jar包（`一共六个`）到你的项目（lib目录）下，右键选择build path ->Add to Build Path
+
+### 1.4 开始发送
+
+> - 这是**最简单**的方式
 > - 这样只需要在需要的时候用初始化的MimeMail send方法发送邮件即可
-> - **注意：**`1.1`和`1.2`都只能添加一种发送器，但是遇到错误会重试一次。相比起来，这种稳定性稍差。
+> - **注意：**这种方式只能添加一种发送器。相比方法2，这种的稳定性稍差。
 > - `1.0.1`版本更新后，此方式默认使用单例模式加载，在使用方式不变的情况下，提高了响应速度
 
 ```java
-/**
-	 * 	下面是一个简单的例子，测试发送。<strong>这是最简单的方式</strong> - 不使用spring容器如何发送邮件 -
-	 * 	弊端：1.发送速度慢，需要几秒钟的时间加载资源 2.这种方式默认只拥有一个发送器，容错率不高
-	 * 
+	/**
+	 * 	下面是一个简单的例子，测试发送。这是最简单的方式
 	 * @throws IOException
 	 * @throws MailAddressException 自定义异常，邮件地址不正确
 	 */
@@ -76,7 +78,7 @@
 	}
 ```
 
-### 1.4 补充
+### 1.5 补充
 
 之后，如果你在系统中再次需要获取MimeMail对象，只需要再次调用`MimeMail.Builder.initMailSender`方法，这样会使用单例模式直接拿到第一次初始化的对象，也就是说**从第二次使用开始，都会直接获取第一次的MimeMail对象，而不会重新创建。之后的调用，参数填错也不要紧。**
 
