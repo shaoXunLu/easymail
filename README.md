@@ -49,12 +49,12 @@
 
 ### 1.2 下载依赖Jar包
 
-- 将本项目使用Maven打包或者到releases[下载`Jar`包](https://github.com/hongshuboy/springmail-simple-mail/releases)
+- 点此[下载`Jar`包](https://github.com/hongshuboy/springmail-simple-mail/releases)或者将本项目使用Maven打包
 - **注意：** 如果你不使用Spring容器，那么你需要 **额外** 将/[dependencies](https://github.com/hongshuboy/springmail-simple-mail/tree/master/dependencies)下的所有Jar包添加到项目中
 
 ### 1.3 Add to Build Path
 
-复制刚刚下载好的几个jar包（`一共六个`）到你的项目（lib目录）下，右键选择build path ->Add to Build Path
+复制刚刚下载好的几个jar包到你的项目（lib目录）下，右键选择build path ->Add to Build Path
 
 ### 1.4 开始发送
 
@@ -142,7 +142,7 @@
 ```xml
 	<!-- 导入邮件组件的spring -->
 	<import resource="classpath*:spring-mailx.xml"/>
-	<!-- 忽略下面的内容 -->
+	<!-- 继续你的配置 -->
   	<bean id="xxx" class="xxx.xxxx">
 		...
 	</bean>
