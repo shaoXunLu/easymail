@@ -4,8 +4,7 @@
   <artifactId>springmail-simple-mail</artifactId>
   <version>1.0.3-RELEASE</version>
   <dependencies>
-  
-	 <dependency>
+	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-core</artifactId>
 	    <version>4.3.22.RELEASE</version>
@@ -46,6 +45,5 @@
 	    <artifactId>log4j</artifactId>
 	    <version>1.2.17</version>
 	</dependency>
-	
   </dependencies>
 </project>
