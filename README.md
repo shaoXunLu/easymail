@@ -156,11 +156,11 @@
 
 > 有问题或者建议欢迎在此页留言或者向我发送邮件，一起改进
 
+![starts](https://img.shields.io/github/stars/hongshuboy/springmail-simple-mail.svg?style=social)
+
 ### 问题反馈
 
-[hongshu@weweb.top](mailto:hongshu@weweb.top)
-
-![starts](https://img.shields.io/github/stars/hongshuboy/springmail-simple-mail.svg?style=social)
+王鹏 [hongshu@weweb.top](mailto:hongshu@weweb.top)
 
 ### 捐赠
 
