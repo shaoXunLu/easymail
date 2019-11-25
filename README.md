@@ -29,16 +29,17 @@
 
 ## 一个示例：
 
-只需要这四行代码，即可`完整`地发送一封邮件。
+只需要这四行代码，即可完整地发送一封邮件。
 
 ```java
-	@Test
-	public void testSendSimple() throws MailAddressException {
-		MimeMail mimeMail = MimeMail.Builder.initMailSender("smtp.163.com", "smtp",465, "hongshuboy@163.com","你的客户端授权码", false);
-		List<String> to = new ArrayList<String>();// 收件人集合
-		to.add("hongshuboy@qq.com");
-		mimeMail.sendMail(to, "你有新的消息", "请到网站内查看"+new Date());
-	}
+@Test
+public void testSendSimple() throws MailAddressException {
+    MimeMail mimeMail = MimeMail.Builder.initMailSender("smtp.163.com", "smtp",465, "hongshuboy@163.com","你的客户端授权码", false);
+    List<String> to = new ArrayList<String>();// 收件人集合
+    to.add("hongshuboy@qq.com");//在这写接收者邮箱地址
+    mimeMail.sendMail(to, "你有新的消息", "请到网站内查看"+new Date());
+    System.out.println("发送成功,接收者列表:"+to);
+}
 ```
 
 ### 1.1 必需的设置，开启邮箱的POP3/SMTP/IMAP
