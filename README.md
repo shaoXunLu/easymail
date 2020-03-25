@@ -161,7 +161,7 @@ public void testSendSimple() throws MailAddressException {
 
 ### 问题反馈
 
-王鹏 [hongshu@weweb.top](mailto:hongshu@weweb.top)
+[hongshu@weweb.top](mailto:hongshu@weweb.top)
 
 ### 捐赠
 
